@@ -1,0 +1,19 @@
+main {
+    display: flex;
+}
+
+.activity-graphic {
+    width: 835px;
+    height: 320px;
+}
+.stats-container {
+    display: flex;
+    margin-top: 77px;
+    margin-left: 107px;
+}
+.graph-container {
+    width: 835px;
+    height: 263px;
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,0 +1,26 @@
+.radar {
+    padding: 0px;
+    border-radius: 5px;
+    background: rgba(40, 45, 48, 1)
+}
+
+
+
+tspan {
+  fill: rgba(255, 255, 255, 1);
+  fill-rule: evenodd ;
+  font-size: 12px;
+  margin: 10px;
+}
+line {
+    stroke: none;
+}
+.recharts-polar-grid-concentric {
+    margin: 20px;
+}
+
+text {
+    padding: 80px;
+    font-size: 18px;
+    orientation: outer;
+}

@@ -1,0 +1,17 @@
+nav {
+    height: 91px;
+    width: 1440px;
+    background: black;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+}
+.logo { 
+    background-color: rgba(255,1 ,1 ,1);
+    border-radius: 50%;
+}
+.logo-title {
+    margin-left: 10px;
+    font-size: 24px;
+    color: rgba(255,1 ,1 ,1);
+}

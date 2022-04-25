@@ -1,0 +1,10 @@
+div.recharts-wrapper.graph-line {
+    background: rgb(210, 14, 14);
+    height: 263px;
+    width: 258px;
+}
+
+.recharts-surface {
+    height: 263px;
+    width: 258px; 
+}
