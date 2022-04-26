@@ -3,8 +3,11 @@ main {
 }
 
 .activity-graphic {
+    display: flex;
     width: 835px;
     height: 320px;
+    margin: 0;
+    padding: 0;
 }
 .stats-container {
     display: flex;

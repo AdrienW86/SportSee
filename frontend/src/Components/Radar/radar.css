@@ -3,15 +3,11 @@
     border-radius: 5px;
     background: rgba(40, 45, 48, 1)
 }
-
-
-
 tspan {
-  fill: rgba(255, 255, 255, 1);
-  fill-rule: evenodd ;
-  font-size: 12px;
-  margin: 10px;
-}
+    fill-rule: evenodd ;
+    font-size: 12px;
+    margin: 10px;
+  }
 line {
     stroke: none;
 }

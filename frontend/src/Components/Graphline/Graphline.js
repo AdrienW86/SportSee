@@ -1,5 +1,5 @@
 import React from 'react';
-import { LineChart, Line,AreaChart, CartesianGrid, Tooltip, Area, XAxis,YAxis,ResponsiveContainer, ReferenceLine } from "recharts";
+import { LineChart, Line,AreaChart, CartesianGrid, Tooltip, Area, XAxis, YAxis, ReferenceLine } from "recharts";
 import './graphline.css';
 
 const data = [
@@ -58,7 +58,7 @@ function Graphline() {
     <Line type="monotone" dataKey="pv" stroke="white" strokeWidth={2} />
   </LineChart>
 
-  <ResponsiveContainer width={100} height={100}>
+ 
     <AreaChart data={data}
       >
       <XAxis dataKey="name" />
@@ -69,7 +69,7 @@ function Graphline() {
       <ReferenceLine y={4000} label="Max" stroke="red" strokeDasharray="3 3" />
       <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
     </AreaChart>
-  </ResponsiveContainer>
+  
 </>
   )
 }

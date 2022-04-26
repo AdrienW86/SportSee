@@ -1,0 +1,19 @@
+li.recharts-legend-item {
+    position: relative;
+    bottom: 350px;
+    left: 300px;
+}
+
+.custom-tooltip {
+    width: 39px;
+    height:63px;
+    text-align: center;
+    background-color: #E60000;
+}
+
+.poids-tooltip, .calories-tooltip{
+    font-size: 7px;
+    font-weight: 500 medium;
+    line-height: 24px;
+    color: #FFFFFF
+}
