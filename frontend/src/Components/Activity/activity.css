@@ -1,7 +1,28 @@
-li.recharts-legend-item {
+.activity {
+    display: flex;
+    flex-direction: column;
+    width: 835px;
+    height: 320px;
+    border-radius: 5px;
+    margin: 0;
+    padding: 0;
+    background-color: #FBFBFB;
+    justify-content: flex-start;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    line-height: 24px;
+    margin-bottom: 47px;
+    margin-left: 47px;
+    color: #20253A;
+}
+
+ul.recharts-default-legend {
     position: relative;
-    bottom: 350px;
-    left: 300px;
+    bottom: 281px;
+    left: 220px;
 }
 
 .custom-tooltip {
@@ -16,4 +37,16 @@ li.recharts-legend-item {
     font-weight: 500 medium;
     line-height: 24px;
     color: #FFFFFF
+}
+
+span{
+    margin-right: 32px;
+} 
+
+.text-color-class {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #74798C;
+    margin: 0px
+
 }

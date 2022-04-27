@@ -53,23 +53,28 @@ function RadarGraph() {
       <RadarChart className='radar'
         cx={130}
         cy={140}
-        outerRadius={92}
-        innerRadius={-8}
+        outerRadius={88}
+        innerRadius={12}
         width={258}
         height={263}
         data={data}
       >
         <PolarGrid />
+        
         <PolarAngleAxis  
           tick={{ fill: 'white' }} 
-          dataKey="subject" />  
-        <Radar
+          dataKey="subject" 
+          margin={5}
+        /> 
+           
+           <Radar
+          width={180}
+          height={180}
           name="Mike"
           dataKey="A"
           stroke="rgba(255, 1, 1)"
           fill="rgba(255, 1, 1)"
           fillOpacity={0.7}
-          margin={ 225 }
         />
       </RadarChart>
   </>

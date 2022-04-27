@@ -1,14 +1,10 @@
+* {
+    font-family: 'Roboto';
+}
 main {
     display: flex;
 }
 
-.activity-graphic {
-    display: flex;
-    width: 835px;
-    height: 320px;
-    margin: 0;
-    padding: 0;
-}
 .stats-container {
     display: flex;
     margin-top: 77px;
@@ -17,6 +13,10 @@ main {
 .graph-container {
     width: 835px;
     height: 263px;
+    margin-top: 28px;
     display: flex;
     justify-content: space-between;
+}
+.numbers-container {
+    margin-left: 31px;
 }

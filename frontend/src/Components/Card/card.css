@@ -1,0 +1,24 @@
+.stats {
+    display: flex;
+    width: 258px;
+    height: 124px;
+    border-radius: 5px;
+    margin-bottom: 39px;
+    background-color: #FBFBFB;
+}
+.img-card {
+    margin: 32px;
+}
+.card-value {
+    font-size: 20px;
+    font-weight: 700, bold;
+    color: #282D30;
+    padding-top: 15px;
+}
+.unite {
+    font-size: 14px;
+    font-weight: 500, medium;
+    color: #74798C;
+    position: relative;
+    bottom: 10px;
+}

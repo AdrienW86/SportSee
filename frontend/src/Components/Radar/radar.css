@@ -1,7 +1,7 @@
 .radar {
     padding: 0px;
     border-radius: 5px;
-    background: rgba(40, 45, 48, 1)
+    background: #282D30
 }
 tspan {
     fill-rule: evenodd ;
@@ -16,7 +16,11 @@ line {
 }
 
 text {
-    padding: 80px;
     font-size: 18px;
     orientation: outer;
+}
+
+g.recharts-layer.recharts-radar {
+    width: 180px;
+    height: 180px;
 }
