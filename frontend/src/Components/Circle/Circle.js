@@ -1,21 +1,25 @@
-
+import React , {useContext }from 'react';
+import { UserContext } from '../../Services/user-profil';
 import { PieChart, Pie } from "recharts";
 import './circle.css'
 
-let dataValue = 90
-let secondValue = 100 - dataValue
-
- const data = [
-     { name: "1", value: dataValue, fill:"#E60000", borderRadius:"60px", border:"0px solid transparent"}, 
-     { name: "2", value: secondValue, fill:"none", border: "0px solid transparent" }
-    
-   ];
-
-  //console.log(dataValue)
-  //console.log(secondValue)
-
 export default function Circle() {
+    const {score, todayScore} = useContext(UserContext)
+    let dataValue
 
+    if(!score) {
+        dataValue = todayScore * 100
+    }else {
+        dataValue = score * 100
+    }
+    
+    let secondValue = 100 - dataValue;
+    
+    const data = 
+        [
+            { name: "1", value: dataValue, fill:"#E60000", borderRadius:"60px", border:"0px solid transparent"}, 
+            { name: "2", value: secondValue, fill:"none", border: "0px solid transparent" }
+        ]   
     
   return (
     <PieChart 
@@ -36,7 +40,7 @@ export default function Circle() {
                 textAnchor='middle' 
                 dominantBaseline= 'middle' 
             >
-                {data[0].value} % 
+                {dataValue} % 
             </text>
             <text
                 className='text-percentage'
@@ -52,7 +56,7 @@ export default function Circle() {
         <Pie
             className='test-circle'
             data={data}
-            dataKey="value"
+            dataKey={"value"}
             cx={-145}
             cy={120}
             innerRadius={60}

@@ -6,8 +6,8 @@ export const PerformanceContext = createContext();
 const PerformanceContextProvider = props => {
 
     const [data, setData] = useState()
-    const getAlldatas = () => {
 
+    const getAlldatas = () => {
         axios.get("http://localhost:3000/user/18/performance")
             .then(response => {  
 

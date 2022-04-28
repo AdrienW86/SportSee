@@ -1,24 +1,38 @@
 import React, {createContext, useState, useEffect} from 'react'
 import axios from 'axios';
 
-export const FirstNameContext = createContext();
+export const UserContext = createContext();
 
-const FirstNameContextProvider = props => {
-    const [data, setData] = useState()
+
+const UserInfosContextProvider = props => {
+    const [firstName, setFirstName] = useState()
+    const [score, setScore] = useState()
+    const [todayScore, setTodayScore] = useState()
+    const [calories, setCalories] = useState()
+    const [proteines, setProteines] = useState()
+    const [glucides, setGlucides] = useState()
+    const [lipides, setLipides] = useState()
+
 
     const getAlldatas = () => {
-        axios.get("http://localhost:3000/user/18")
+        axios.get("http://localhost:3000/user/12")
             .then(response => {
-               setData(response.data.data.userInfos.firstName)        
+               setFirstName(response.data.data.userInfos.firstName) 
+               setScore(response.data.data.score) 
+               setTodayScore(response.data.data.todayScore)
+               setCalories(response.data.data.keyData.calorieCount) 
+               setProteines(response.data.data.keyData.proteinCount)    
+               setGlucides(response.data.data.keyData.carbohydrateCount)
+               setLipides(response.data.data.keyData.lipidCount)    
             })   
     }  
     useEffect(() => {
         getAlldatas()
     },[])
 
-    return <FirstNameContext.Provider value={{data}}>
+    return <UserContext.Provider value={{firstName, score,todayScore, calories, proteines, glucides, lipides}}>
                 {props.children}
-           </FirstNameContext.Provider>
+           </UserContext.Provider>
 }
 
-export default FirstNameContextProvider
+export default UserInfosContextProvider
