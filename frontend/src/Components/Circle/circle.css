@@ -13,5 +13,5 @@ text.text-percentage {
 .test-circle {
    width: 159px;
    height: 159px;
-   rotate: -45deg
+   transform: rotate(-45deg)
 }

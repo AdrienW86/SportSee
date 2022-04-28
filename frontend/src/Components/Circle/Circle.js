@@ -1,20 +1,22 @@
-import React from 'react';
+
 import { PieChart, Pie } from "recharts";
 import './circle.css'
 
 let dataValue = 90
 let secondValue = 100 - dataValue
 
-const data = [
-    { name: "1", value: dataValue, fill:"#E60000", borderRadius:"60px", border:"0px solid transparent"}, 
-    { name: "2", value: secondValue, fill:"none", border: "0px solid transparent" }
+ const data = [
+     { name: "1", value: dataValue, fill:"#E60000", borderRadius:"60px", border:"0px solid transparent"}, 
+     { name: "2", value: secondValue, fill:"none", border: "0px solid transparent" }
     
-  ];
+   ];
 
   //console.log(dataValue)
   //console.log(secondValue)
 
 export default function Circle() {
+
+    
   return (
     <PieChart 
         className ="circle"

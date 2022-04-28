@@ -1,6 +1,7 @@
 import React from 'react';
-import axios from 'axios';
-import { useState, useEffect } from 'react';
+import FirstNameContextProvider from '../Services/user-profil';
+import ActivityContextProvider from '../Services/user-activity';
+import PerformanceContextProvider from '../Services/user-performance';
 import Navbar from '../Components/Navbar/Navbar';
 import Aside from '../Components/Aside/Aside.js';
 import Hello from '../Components/Hello/Hello';
@@ -16,32 +17,29 @@ import Lipides from '../assets/fat-icon.svg'
 import './home.css';
 
 
+
 function Home() {
-  const [myData, setData] = useState(null)
-  
-  useEffect(() => {
-    axios.get("http://localhost:3000/user/18")
-      .then(res => {
-     setData(res.data)
-     })
- },[])
-  console.log(myData)
   return (
     <>
       <Navbar/>
         <main>
           <Aside/>
             <div>
-              <Hello 
-                firstName = "Thomas"
-                // {myData.data.userInfos.firstName}
-              />
+              <FirstNameContextProvider>
+                <Hello/>
+              </FirstNameContextProvider>
+              
               <section className='stats-container'>
-                <section className='graphics-container'>                 
-                 <Activity/>                 
+                <section className='graphics-container'> 
+                <ActivityContextProvider >               
+                 <Activity/>                
+                </ActivityContextProvider>
                   <div className='graph-container'>
                     <Graphline className='graphline'/>
-                    <RadarGraph />
+                    <PerformanceContextProvider>
+                      <RadarGraph />
+                    </PerformanceContextProvider>
+                   
                     <Circle />
                   </div>
                 </section>
