@@ -15,3 +15,13 @@ nav {
     font-size: 24px;
     color: rgba(255,1 ,1 ,1);
 }
+.ul-navbar {
+    display: flex;
+}
+.navbar-item {
+    list-style: none;
+    color: white;
+    font-size: 24px;
+    font-weight: 500, medium;
+    margin-left: 160px;
+}

@@ -1,16 +1,27 @@
-import React , {useContext }from 'react';
-import { UserContext } from '../../Services/user-profil';
+import React, {useEffect} from 'react';
+import useFetch from '../../Services/useFetch'
 import { PieChart, Pie } from "recharts";
 import './circle.css'
 
 export default function Circle() {
-    const {score, todayScore} = useContext(UserContext)
+    
+    const [{response, error, isLoading}, doFetch] = useFetch("http://localhost:3000/user/18")
+    useEffect(()=> {
+    
+        console.log(response, error, isLoading)
+          doFetch()
+            console.log(response.data.score)
+          if(isLoading === true) {
+            alert(error)
+          }
+      },[doFetch])
+
     let dataValue
 
-    if(!score) {
-        dataValue = todayScore * 100
+    if(!response.data.score) {
+        dataValue = response.data.todayScore * 100
     }else {
-        dataValue = score * 100
+        dataValue = response.data.score * 100
     }
     
     let secondValue = 100 - dataValue;

@@ -1,8 +1,7 @@
-import React , {useContext}from 'react';
-import { ActivityContext } from '../../Services/user-activity';
+import React , {useEffect} from 'react';
+import useFetch from '../../Services/useFetch'
 import { BarChart, Bar,  XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import './activity.css'
-
 
 const CustomTooltip = ({payload }) => {
   if (payload && payload.length) {
@@ -15,19 +14,22 @@ const CustomTooltip = ({payload }) => {
   }
   return null;
 };
-  
-  
+    
 function Activity() {
 
-  const{data} = useContext(ActivityContext)
-  console.log(data)
+const [{response, error, isLoading}, doFetch] = useFetch("http://localhost:3000/user/18/activity")
+
+  useEffect(()=> {
+    console.log(response, error, isLoading)
+   doFetch()
+  },[doFetch])
   return (   
     <div className="activity">
       <h2> Activité quotidienne </h2>
         <BarChart           
             width={835}
             height={236}
-            data={data}
+            data={response.data.sessions}
             margin={{
             top: 5,
             right: -30,

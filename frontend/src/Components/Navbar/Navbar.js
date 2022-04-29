@@ -10,8 +10,11 @@ function Navbar() {
         src={Logo} 
         alt="logo"/>
       <p className='logo-title'> SportSee </p>
-      <ul>
-        
+      <ul className='ul-navbar'>
+       <li className='navbar-item'> Accueil </li>
+       <li className='navbar-item'> Profil </li>
+       <li className='navbar-item'> Réglage</li>
+       <li className='navbar-item'> Communauté </li>
       </ul>
     </nav>
   )

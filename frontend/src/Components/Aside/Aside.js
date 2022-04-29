@@ -8,11 +8,15 @@ import './aside.css';
 function Aside() {
   return (
     <aside>
+      <div className='img-container'>
         <img className='sport-img' src={Yoga} alt='yoga'/>
         <img className='sport-img' src={Swim} alt='swimming'/>
         <img className='sport-img' src={Ride} alt='riding'/>
         <img className='sport-img' src={Dumb} alt='dumbbells'/>
-        Aside
+      </div>
+      <div className='copyright'>
+        <p className='copyright-txt'> Copyright, SportSee 2020 </p>
+      </div>
     </aside>
   )
 }
