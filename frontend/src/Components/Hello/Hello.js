@@ -21,7 +21,7 @@ function Hello() {
     <section className='welcome-message'>
         <h1> Bonjour  
           <span> 
-            {response.data.userInfos.firstName} 
+            {/* {response.data.userInfos.firstName}  */}
           </span>
         </h1>
         <p> Félicitations ! Vous avez explosé vos objectifs hier  &#128079;  </p>

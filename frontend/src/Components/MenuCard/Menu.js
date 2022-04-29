@@ -24,22 +24,22 @@ useEffect(()=> {
     <>
         <Card 
             cover = {Calories}
-            number = {response.data.keyData.calorieCount}
+        //    number = {response.data.keyData.calorieCount}
             unit = "Calories"
         />
         <Card 
             cover = {Proteine}
-            number = {response.data.keyData.proteinCount}
+        //    number = {response.data.keyData.proteinCount}
             unit = "Proteines"
         />
         <Card 
             cover = {Glucides}
-            number = {response.data.keyData.carbohydrateCount}
+        //    number = {response.data.keyData.carbohydrateCount}
             unit = "Glucides"
         />
         <Card 
             cover = {Lipides}
-            number = {response.data.keyData.lipidCount}
+        //    number = {response.data.keyData.lipidCount}
             unit = "Lipides"
         /> 
     </>

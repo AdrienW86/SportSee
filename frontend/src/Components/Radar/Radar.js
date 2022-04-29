@@ -17,15 +17,15 @@ function RadarGraph() {
       }
   },[doFetch])
 
-  let values = response.data.data.map(el => el.value)
-  let titles = Object.values(response.data.kind)
-  let array = []
-  let i = 0;
+  // let values = response.data.data.map(el => el.value)
+  // let titles = Object.values(response.data.kind)
+  // let array = []
+  // let i = 0;
 
-      do {                                   
-          array.push({title: titles[i], value: values[i]})
-          i +=1  
-      } while (i < titles.length)
+  //     do {                                   
+  //         array.push({title: titles[i], value: values[i]})
+  //         i +=1  
+  //     } while (i < titles.length)
 
   return (
     <>      
@@ -36,7 +36,7 @@ function RadarGraph() {
         innerRadius={12}
         width={258}
         height={263}
-        data={array}
+     //   data={array}
       >
         <PolarGrid />
         <PolarAngleAxis  

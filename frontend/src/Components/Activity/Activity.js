@@ -29,7 +29,7 @@ const [{response, error, isLoading}, doFetch] = useFetch("http://localhost:3000/
         <BarChart           
             width={835}
             height={236}
-            data={response.data.sessions}
+        //    data={response.data.sessions}
             margin={{
             top: 5,
             right: -30,

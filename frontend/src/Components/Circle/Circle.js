@@ -10,7 +10,7 @@ export default function Circle() {
     
         console.log(response, error, isLoading)
           doFetch()
-            console.log(response.data.score)
+        //    console.log(response.data.score)
           if(isLoading === true) {
             alert(error)
           }
@@ -18,18 +18,18 @@ export default function Circle() {
 
     let dataValue
 
-    if(!response.data.score) {
-        dataValue = response.data.todayScore * 100
-    }else {
-        dataValue = response.data.score * 100
-    }
+    // if(!response.data.score) {
+    //     dataValue = response.data.todayScore * 100
+    // }else {
+    //     dataValue = response.data.score * 100
+    // }
     
-    let secondValue = 100 - dataValue;
+    // let secondValue = 100 - dataValue;
     
     const data = 
         [
             { name: "1", value: dataValue, fill:"#E60000", borderRadius:"60px", border:"0px solid transparent"}, 
-            { name: "2", value: secondValue, fill:"none", border: "0px solid transparent" }
+         //   { name: "2", value: secondValue, fill:"none", border: "0px solid transparent" }
         ]   
     
   return (
@@ -66,7 +66,7 @@ export default function Circle() {
             </text>     
         <Pie
             className='test-circle'
-            data={data}
+        //    data={data}
             dataKey={"value"}
             cx={-145}
             cy={120}
