@@ -1,36 +1,16 @@
-import { useState, useEffect, useCallback } from 'react';
-import axios from 'axios';
+import axios from "axios";
+import { useEffect, useState } from "react";
 
- const useFetch = (url) => {
-    const [response, setResponse] = useState(null)
-    const [isLoading, setIsLoading] = useState(false)
-    const [error, setError] = useState(null)
+export function UseFetch(url, pathFunction) {
+    const [data, setData] = useState([]);
+      useEffect(() => {
+        axios.get(url)
+        .then(response => {
+          const path = pathFunction(response)
     
-    const doFetch = useCallback((options ={}) => {
-        console.log(" do fetch")
-        setIsLoading(true)
-    },[])
+      setData(path);
      
-    useEffect(()=> {
-        if(!isLoading) {
-            return
-        }
-
-        const fetchData = async() => {
-            try {
-                const res = await axios(url)
-                setResponse(res.data)
-            }catch(err) {
-                const data = err.response ? err.response.data : 'Server error'
-                setError(data)
-            }
-            setIsLoading(false)
-        }
-        fetchData()
-    },[isLoading, url])
-
-    return [{response, error, isLoading}, doFetch]
-    
+    })
+   }, [url, pathFunction]);
+  return data
 }
-
-export default useFetch;

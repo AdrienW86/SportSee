@@ -1,5 +1,6 @@
-import React , {useEffect }from 'react';
-import useFetch from '../../Services/useFetch'
+import React from 'react';
+import {UseFetch} from '../../Services/useFetch';
+import {getKeyDatas} from '../../Services/user';
 import Card from '../../Components/Card/Card';
 import Proteine from '../../assets/protein-icon.svg'
 import Calories from '../../assets/calories-icon.svg'
@@ -8,38 +9,30 @@ import Lipides from '../../assets/fat-icon.svg'
 
 function Menu() {
 
-const [{response, error, isLoading}, doFetch] = useFetch("http://localhost:3000/user/18")
+const user = UseFetch("http://localhost:3000/user/18",getKeyDatas )
  
-useEffect(()=> {
-    
-    console.log(response, error, isLoading)
-      doFetch()
 
-      if(isLoading === true) {
-        alert(error)
-      }
-  },[doFetch])
 
   return (
     <>
         <Card 
             cover = {Calories}
-        //    number = {response.data.keyData.calorieCount}
+            number = {user.calorieCount}
             unit = "Calories"
         />
         <Card 
             cover = {Proteine}
-        //    number = {response.data.keyData.proteinCount}
+            number = {user.proteinCount}
             unit = "Proteines"
         />
         <Card 
             cover = {Glucides}
-        //    number = {response.data.keyData.carbohydrateCount}
+            number = {user.carbohydrateCount}
             unit = "Glucides"
         />
         <Card 
             cover = {Lipides}
-        //    number = {response.data.keyData.lipidCount}
+            number = {user.lipidCount}
             unit = "Lipides"
         /> 
     </>

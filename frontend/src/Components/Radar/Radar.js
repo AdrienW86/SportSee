@@ -1,31 +1,12 @@
-import React , {useEffect }from 'react';
-import useFetch from '../../Services/useFetch'
+import React from 'react';
+import {UseFetch} from '../../Services/useFetch';
+import {getPerformance} from '../../Services/user';
 import {Radar,RadarChart,PolarGrid,PolarAngleAxis} from "recharts";
 import './radar.css';
 
 function RadarGraph() {
 
-  const [{response, error, isLoading}, doFetch] = useFetch("http://localhost:3000/user/18/performance")
-
-  useEffect(()=> {
-    
-    console.log(response, error, isLoading)
-      doFetch()
-
-      if(isLoading === true) {
-        alert(error)
-      }
-  },[doFetch])
-
-  // let values = response.data.data.map(el => el.value)
-  // let titles = Object.values(response.data.kind)
-  // let array = []
-  // let i = 0;
-
-  //     do {                                   
-  //         array.push({title: titles[i], value: values[i]})
-  //         i +=1  
-  //     } while (i < titles.length)
+  const performance = UseFetch("http://localhost:3000/user/18/performance", getPerformance)
 
   return (
     <>      
@@ -36,7 +17,7 @@ function RadarGraph() {
         innerRadius={12}
         width={258}
         height={263}
-     //   data={array}
+        data= {performance.array}
       >
         <PolarGrid />
         <PolarAngleAxis  
@@ -47,7 +28,7 @@ function RadarGraph() {
         <Radar
           width={180}
           height={180}
-          name="Mike"
+          name="radar"
           dataKey="value"
           stroke="rgba(255, 1, 1)"
           fill="rgba(255, 1, 1)"

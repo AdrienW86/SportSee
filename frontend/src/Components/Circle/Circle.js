@@ -1,35 +1,27 @@
-import React, {useEffect} from 'react';
-import useFetch from '../../Services/useFetch'
+import React from 'react';
+import {UseFetch} from '../../Services/useFetch';
+import {getUser} from '../../Services/user';
 import { PieChart, Pie } from "recharts";
 import './circle.css'
 
 export default function Circle() {
     
-    const [{response, error, isLoading}, doFetch] = useFetch("http://localhost:3000/user/18")
-    useEffect(()=> {
+    const user = UseFetch("http://localhost:3000/user/18", getUser)
     
-        console.log(response, error, isLoading)
-          doFetch()
-        //    console.log(response.data.score)
-          if(isLoading === true) {
-            alert(error)
-          }
-      },[doFetch])
-
     let dataValue
 
-    // if(!response.data.score) {
-    //     dataValue = response.data.todayScore * 100
-    // }else {
-    //     dataValue = response.data.score * 100
-    // }
+     if(!user.score) {
+         dataValue = user.todayScore * 100
+     }else {
+         dataValue = user.score * 100
+     }
     
-    // let secondValue = 100 - dataValue;
+     let secondValue = 100 - dataValue;
     
     const data = 
         [
             { name: "1", value: dataValue, fill:"#E60000", borderRadius:"60px", border:"0px solid transparent"}, 
-         //   { name: "2", value: secondValue, fill:"none", border: "0px solid transparent" }
+            { name: "2", value: secondValue, fill:"none", border: "0px solid transparent" }
         ]   
     
   return (
@@ -66,7 +58,7 @@ export default function Circle() {
             </text>     
         <Pie
             className='test-circle'
-        //    data={data}
+            data={data}
             dataKey={"value"}
             cx={-145}
             cy={120}
