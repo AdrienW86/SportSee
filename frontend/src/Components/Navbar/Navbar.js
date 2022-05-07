@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Logo from '../../assets/logo.svg';
 import './navbar.css';
 
@@ -8,8 +9,13 @@ function Navbar() {
       <img 
         className='logo'
         src={Logo} 
-        alt="logo"/>
-      <p className='logo-title'> SportSee </p>
+        alt="logo"
+      />
+      <Link 
+        className='home'      
+        to= "/">
+          <p className='logo-title'> SportSee </p> 
+      </Link>  
       <ul className='ul-navbar'>
        <li className='navbar-item'> Accueil </li>
        <li className='navbar-item'> Profil </li>

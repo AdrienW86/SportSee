@@ -10,7 +10,7 @@
     justify-content: flex-start;
 }
 
-h2 {
+.activity-title {
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
     line-height: 24px;
@@ -39,14 +39,9 @@ ul.recharts-default-legend {
     color: #FFFFFF
 }
 
-span{
-    margin-right: 32px;
-} 
-
 .text-color-class {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     color: #74798C;
     margin: 0px
-
 }

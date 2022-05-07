@@ -1,22 +1,21 @@
-* {
-    font-family: 'Roboto';
-}
-main {
-    display: flex;
-}
+ .dataId {
+     width: 500px;
+     display: flex;
+     justify-content: space-around;
+     position: relative;
+     left: 400px;
+     top: 200px;
+ }
 
-.stats-container {
-    display: flex;
-    margin-top: 77px;
-    margin-left: 107px;
-}
-.graph-container {
-    width: 835px;
-    height: 263px;
-    margin-top: 28px;
-    display: flex;
-    justify-content: space-between;
-}
-.numbers-container {
-    margin-left: 31px;
+ .button-data {
+     width: 100px;
+     height: 40px;
+     color: white;
+     background-color: black;
+     border: none;
+     border-radius: 8px;
+ }
+
+.button-data:hover {
+    cursor: pointer;
 }

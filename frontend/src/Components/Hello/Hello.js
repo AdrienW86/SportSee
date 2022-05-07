@@ -1,16 +1,26 @@
 import React from 'react';
+import { useParams } from 'react-router';
 import { UseFetch } from '../../Services/useFetch';
+import { getUser } from '../../Services/user'
+import { userInfos } from '../../mocked-data';
+import { mockedGetUser } from '../../Services/mocked-user'
 import './hello.css';
-import {getUser} from '../../Services/user'
 
 function Hello() {
- 
-  const user = UseFetch("http://localhost:3000/user/18", getUser)
+  let user
+  const params = useParams()
+  const id = parseInt(params.id)
+
+  user = UseFetch(`http://localhost:3000/user/${id}`, getUser)
+
+  if(user === undefined) {
+    user = mockedGetUser(userInfos, id)
+  }
 
   return (
     <section className='welcome-message'>
       <h1> Bonjour 
-        <span> {user.firstname} </span> 
+        <span className='title-name'> {user.firstname} </span> 
       </h1>      
       <p> Félicitations ! Vous avez explosé vos objectifs hier  &#128079;  </p>
     </section> 

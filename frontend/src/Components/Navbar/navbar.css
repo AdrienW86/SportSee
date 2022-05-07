@@ -10,6 +10,9 @@ nav {
     background-color: rgba(255,1 ,1 ,1);
     border-radius: 50%;
 }
+.home {
+    text-decoration: none;
+}
 .logo-title {
     margin-left: 10px;
     font-size: 24px;

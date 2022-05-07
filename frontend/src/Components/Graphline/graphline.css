@@ -1,6 +1,35 @@
+.graphline-title {
+    color: white;
+    opacity: 0.3;
+    font-size: 15px;
+    position: absolute;
+    left: 280px;
+    z-index: 10;
+    width: 160px;
+    height: 60px;
+    margin-top: 30px;
+}
+
 .graph-line {
     background: rgb(210, 14, 14);
     height: 263px;
     width: 258px;
     border-radius: 5px;
+}
+
+.graphline-tooltip {
+    color: black;
+    width: 33px;
+    height: 25px;
+    background: white;
+    font-size: 8px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+#recharts_measurement_span {
+    display: none
+}
+.legend {
+    width: 50px
 }

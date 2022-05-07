@@ -1,8 +1,11 @@
 import React from 'react';
-import {UseFetch} from '../../Services/useFetch';
-import {getUserActivity} from '../../Services/user';
+import { useParams } from 'react-router';
+import { UseFetch } from '../../Services/useFetch';
+import { getSession } from '../../Services/user';
+import { mockedGetSession } from '../../Services/mocked-user';
 import { BarChart, Bar,  XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import './activity.css'
+import { userActivity } from '../../mocked-data';
 
 const CustomTooltip = ({payload }) => {
   if (payload && payload.length) {
@@ -15,14 +18,21 @@ const CustomTooltip = ({payload }) => {
   }
   return null;
 };
-    
+ 
 function Activity() {
+  let session
+  const params = useParams()
+  let id = parseInt(params.id)
 
-const session = UseFetch("http://localhost:3000/user/18/activity",getUserActivity)
+  session = UseFetch(`http://localhost:3000/user/${id}/activity`,getSession)
+
+  if(session === undefined) {
+    session = mockedGetSession(userActivity, id)
+  }
  
   return (   
     <div className="activity">
-      <h2> Activité quotidienne </h2>
+      <h2 className='activity-title'> Activité quotidienne </h2>
         <BarChart           
             width={835}
             height={236}
@@ -32,18 +42,16 @@ const session = UseFetch("http://localhost:3000/user/18/activity",getUserActivit
             right: -30,
             left: -30,
             bottom: 0,
-          }}
+          }}         
         >        
           <CartesianGrid 
-            vertical= {false} 
-            strokeDasharray="3 3" 
+            vertical= {true}             
           />
-          <XAxis 
-            strokeDasharray="3 3"
+          <XAxis             
             dataKey="day"
             tick={{ fill: '#9B9EAC' }}        
           />
-          <YAxis  
+          <YAxis             
             type="number" 
             domain={['dataMin - 1', 'dataMax + 1']}
             yAxisId="right"
@@ -91,6 +99,6 @@ const session = UseFetch("http://localhost:3000/user/18/activity",getUserActivit
           />
         </BarChart>
     </div>
-  )
+  )     
 }
 export default Activity

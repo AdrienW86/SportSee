@@ -1,11 +1,6 @@
 import Navbar from '../Components/Navbar/Navbar';
 import Aside from '../Components/Aside/Aside.js';
-import Hello from '../Components/Hello/Hello';
-import Graphline from '../Components/Graphline/Graphline.js';
-import RadarGraph from '../Components/Radar/Radar.js';
-import Activity from '../Components/Activity/Activity';
-import Circle from '../Components/Circle/Circle';
-import Menu from '../Components/MenuCard/Menu';
+import { Link } from 'react-router-dom';
 import './home.css';
 
 function Home() {  
@@ -14,22 +9,29 @@ function Home() {
       <Navbar/>
         <main>
           <Aside/>
-            <div>             
-              <Hello/>             
-                <section className='stats-container'>
-                  <section className='graphics-container'>                          
-                    <Activity/>                              
-                      <div className='graph-container'>
-                        <Graphline className='graphline'/>                   
-                        <RadarGraph />                 
-                        <Circle />
-                      </div>
-                  </section>
-                  <section className='numbers-container'>                
-                    <Menu/>                 
-                  </section>
-                </section>
-            </div>         
+            <section className='dataId'>
+              <Link to={`user/12`}>
+                <button className='button-data'>
+                  User 12
+                </button> 
+              </Link>
+              <Link to={`user/18`}>
+                <button className='button-data'> 
+                  User 18
+                </button>
+              </Link>
+
+              <Link to={`user-mocked/12`}>
+                <button className='button-data'>
+                  Mocked user 12
+                </button> 
+              </Link>
+              <Link to={`user-mocked/18`}>
+                <button className='button-data'> 
+                  Mocked user 18
+                </button>
+              </Link>                   
+            </section>      
         </main>
     </>
   )

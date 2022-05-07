@@ -1,20 +1,18 @@
 .radar {
     padding: 0px;
     border-radius: 5px;
-    background: #282D30
+    background: #282D30;
 }
 tspan {
     fill-rule: evenodd ;
-    font-size: 12px;
-    margin: 10px;
-  }
+    font-size: 10px;
+}
 line {
     stroke: none;
 }
 .recharts-polar-grid-concentric {
     margin: 20px;
 }
-
 text {
     font-size: 18px;
     orientation: outer;
