@@ -1,10 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router';
-import { UseFetch } from '../../Services/useFetch';
-import { getSession } from '../../Services/user';
 import { AreaChart, Tooltip, Area, XAxis, YAxis} from "recharts";
-import { userSessions } from '../../mocked-data';
-import { mockedGetSession } from '../../Services/mocked-user';
 import './graphline.css';
 
 const CustomTooltip = ({payload }) => {
@@ -18,24 +13,14 @@ const CustomTooltip = ({payload }) => {
   return null;
 };
 
-function Graphline() {
-  let session
-  const params = useParams()
-  const id = parseInt(params.id)
-
- session = UseFetch (`http://localhost:3000/user/${id}/average-sessions`,getSession)
-
- if(session === undefined) {
-  session = mockedGetSession(userSessions, id)
-}
-
+function Graphline(props) {
   return (
     <>
     <h2 className='graphline-title'> Durée moyenne des sessions </h2>
       <AreaChart
         width={258}
         height={263}
-        data={session}       
+        data={props.session}       
         className='graph-line' 
         margin={{
           top: 100,

@@ -1,11 +1,6 @@
 import React from 'react';
-import { useParams } from 'react-router';
-import { UseFetch } from '../../Services/useFetch';
-import { getSession } from '../../Services/user';
-import { mockedGetSession } from '../../Services/mocked-user';
 import { BarChart, Bar,  XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import './activity.css'
-import { userActivity } from '../../mocked-data';
 
 const CustomTooltip = ({payload }) => {
   if (payload && payload.length) {
@@ -19,24 +14,15 @@ const CustomTooltip = ({payload }) => {
   return null;
 };
  
-function Activity() {
-  let session
-  const params = useParams()
-  let id = parseInt(params.id)
-
-  session = UseFetch(`http://localhost:3000/user/${id}/activity`,getSession)
-
-  if(session === undefined) {
-    session = mockedGetSession(userActivity, id)
-  }
- 
+function Activity(props) {
+  
   return (   
     <div className="activity">
       <h2 className='activity-title'> Activité quotidienne </h2>
         <BarChart           
             width={835}
             height={236}
-            data={session}
+            data={props.session}
             margin={{
             top: 5,
             right: -30,
