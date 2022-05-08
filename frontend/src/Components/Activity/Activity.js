@@ -22,7 +22,6 @@ const CustomTooltip = ({payload }) => {
   return null;
 };
 function Activity(props) {
-  
   return (   
     <div className="activity">
       <h2 className='activity-title'> Activité quotidienne </h2>
@@ -32,16 +31,17 @@ function Activity(props) {
             data={props.session}
             margin={{
             top: 5,
-            right: -30,
-            left: -30,
+            right: 20,
+            left: 0,
             bottom: 0,
           }}         
         >        
           <CartesianGrid 
-            vertical= {true}             
+           trokeDasharray={"3"} vertical={false}            
           />
           <XAxis             
             dataKey="day"
+            tickLine={false}
             tick={{ fill: '#9B9EAC' }}        
           />
           <YAxis             
@@ -50,7 +50,8 @@ function Activity(props) {
             yAxisId="right"
             dataKey="kilogram"
             orientation="right"
-            tick={{ fill: '#9B9EAC' }}       
+            tick={{ fill: '#9B9EAC' }} 
+            tickCount={4}
           />
           <YAxis
             type="number" 
@@ -61,23 +62,34 @@ function Activity(props) {
             display="none"
           />
           <Tooltip 
+            color={'red'}
             content={<CustomTooltip />} 
+            cursor={{
+              fill: 'rgba(196, 196, 196, 0.5',
+              width: 95,
+            }}          
           />                           
           <Bar 
+            className='bar'
             name={"Poids (kg)"}
             yAxisId="right"
             dataKey="kilogram" 
             barSize={7} 
             radius= {[50, 50, 0, 0]}
-            fill="black"            
+            fill="black"   
+              
           />
           <Bar
+          className='bar'
             name={"Calories brûlées (kCal)"}
             yAxisId="left"
             dataKey="calories" 
             barSize={7}
             radius= {[50, 50, 0, 0]}
-            fill="#E60000"          
+            fill="#E60000" 
+           
+            
+            
           />
           <Legend 
             iconSize={8}

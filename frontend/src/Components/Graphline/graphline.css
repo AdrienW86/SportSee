@@ -1,35 +1,41 @@
+.line-chart-container {
+  background: red;
+  width: 258px;
+  height: 263px;
+  border-radius: 5px;
+  
+}
+
 .graphline-title {
     color: white;
     opacity: 0.3;
     font-size: 15px;
     position: absolute;
+    top: 760px;
     left: 280px;
-    z-index: 10;
     width: 160px;
     height: 60px;
-    margin-top: 30px;
+    
 }
-
 .graph-line {
-    background: rgb(210, 14, 14);
+    background: #FF0000;
     height: 263px;
     width: 258px;
     border-radius: 5px;
 }
 
 .graphline-tooltip {
-    color: black;
-    width: 33px;
     height: 25px;
-    background: white;
-    font-size: 8px;
-    text-align: center;
-    padding-top: 10px;
+    width: 39px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.7rem;
 }
 
-#recharts_measurement_span {
-    display: none
-}
-.legend {
-    width: 50px
+.tooltip-graphline {
+    height: 12px;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AreaChart, Tooltip, Area, XAxis, YAxis} from "recharts";
+import { LineChart,  Tooltip, Line, XAxis, YAxis, ResponsiveContainer} from "recharts";
 import './graphline.css';
 
 /**Custom Tooltip
@@ -22,41 +22,49 @@ const CustomTooltip = ({payload }) => {
 
 function Graphline(props) {
   return (
-    <>
-    <h2 className='graphline-title'> Durée moyenne des sessions </h2>
-      <AreaChart
-        width={258}
-        height={263}
-        data={props.session}       
-        className='graph-line' 
-        margin={{
-          top: 100,
-          right: 0,
-          left: 0,
-          bottom: 10,
-        }}
+    <> 
+    <div className='line-chart-container'>
+      <h2 className='graphline-title'> Durée moyenne des sessions </h2>   
+      <LineChart
+        width= {260}
+        height= {263}
+        data={props.session}  
+        
       >       
-        <XAxis        
-        interval="preserveStartEnd"
-        domain={[0,7]}
-          tickSize = {14}
-          stroke="white"
-          dataKey="day" 
-          opacity={0.3}
-          width= {200}          
-        />  
-          <YAxis hide={true} domain={[0, "dataMax + 30"]} />    
+      <XAxis
+        dataKey={"day"}
+        stroke="rgba(255, 255, 255, 0.5)"   
+      />
+        <YAxis hide={true} domain={[0, "dataMax +30"]} />   
         <Tooltip
-          cursor ={false}
+          cursor={{
+            stroke: "rgba(0, 0, 0, 0.1)",
+            strokeWidth: 80,
+            strokeHeight: 270,
+          }}
+          padding = {{
+            top: 50
+          }}
           content={<CustomTooltip/>} 
         />         
-        <Area 
-          type="monotone" 
-          dataKey="sessionLength" 
-          stroke="white"
-          fill= "none"         
+        <Line 
+        className='line'
+         strokeWidth={2}
+          dataKey={"sessionLength"}
+          type={"monotone"}
+          stroke="#fff"
+          dot={false}
+          activeDot={{
+            stroke: "#fff",
+            strokeWidth: 15,
+            strokeHeight: 40,
+            strokeOpacity: 0.2,
+          }}  
+            
         />       
-      </AreaChart>  
+      </LineChart> 
+      
+      </div>
     </>
   )
 }

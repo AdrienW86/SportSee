@@ -48,8 +48,10 @@ function Circle(props) {
                 textAnchor='middle'
                 dominantBaseline='middle'
                 fill='#74798C'
+                value="de votre"                
             >   
-                de votre objectif
+            <tspan  x="50%" dy="10"className='objectif-text'> de votre </tspan>
+            <tspan x="50%" dy="26"className='objectif'> objectif </tspan>
             </text>     
         <Pie
             className='test-circle'

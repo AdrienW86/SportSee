@@ -7,11 +7,11 @@
     font-weight: 700, bold;
     font-family: 'Roboto';
 }
-text.text-percentage {
-    font-size: 16px; 
+.objectif, .objectif-text {
+    font-size: 16px;
 }
 .test-circle {
    width: 159px;
    height: 159px;
-   transform: rotate(-45deg)
+   transform: rotate(-45deg);
 }
