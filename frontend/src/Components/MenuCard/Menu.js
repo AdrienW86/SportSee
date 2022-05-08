@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Card from '../../Components/Card/Card';
 import Proteine from '../../assets/protein-icon.svg'
 import Calories from '../../assets/calories-icon.svg'
@@ -30,4 +31,8 @@ function Menu(props) {
     </>
   )
 }
+Menu.propTypes = {
+    calorieCount : PropTypes.string,
+    unit: PropTypes.string
+  }
 export default Menu

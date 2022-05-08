@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { PieChart, Pie } from "recharts";
 import './circle.css'
 
-export default function Circle(props) { 
+function Circle(props) { 
     let dataValue
   
     if(props.todayScore) {
@@ -63,3 +64,10 @@ export default function Circle(props) {
     </PieChart>
   )
 }
+Circle.propTypes = {
+    todayScore : PropTypes.number,
+    score: PropTypes.number,
+    dataValue: PropTypes.number,
+    secondValue: PropTypes.number
+}
+export default Circle

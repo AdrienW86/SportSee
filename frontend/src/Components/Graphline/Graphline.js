@@ -1,6 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { AreaChart, Tooltip, Area, XAxis, YAxis} from "recharts";
 import './graphline.css';
+
+/**Custom Tooltip
+ * @type {function}
+ * @param {object} payload hover an array with data is created
+ * @returns {HTMLElement}
+ */
 
 const CustomTooltip = ({payload }) => {
   if (payload && payload.length) {
@@ -52,5 +59,15 @@ function Graphline(props) {
       </AreaChart>  
     </>
   )
+}
+Graphline.propTypes = {
+  id : PropTypes.number,
+  location: PropTypes.string,
+  data: PropTypes.array,
+  currentUrl: PropTypes.string,
+  currentUrlMocked: PropTypes.string,
+  firstname: PropTypes.string,
+  session: PropTypes.array,
+  
 }
 export default Graphline

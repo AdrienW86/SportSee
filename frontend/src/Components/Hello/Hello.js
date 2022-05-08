@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './hello.css';
 
 function Hello(props) {
@@ -10,5 +11,8 @@ function Hello(props) {
       <p> Félicitations ! Vous avez explosé vos objectifs hier  &#128079;  </p>
     </section> 
   )
+}
+Hello.propTypes = {
+  firstname : PropTypes.string,
 }
 export default Hello

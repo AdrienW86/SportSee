@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 // Components
 import Navbar from '../../Components/Navbar/Navbar';
 import Aside from '../../Components/Aside/Aside.js';
@@ -13,78 +13,54 @@ import NotFound from '../NotFound/NotFound';
 
 // Hooks
 import { useParams } from 'react-router';
-import { UseFetch } from '../../Services/useFetch';
-
-// Methods
-import { getUser, getSession, getKeyDatas } from '../../Services/user';
-import { userInfos, userActivity, userSessions } from '../../mocked-data';
-import { mockedGetUser, mockedGetSession, mockedGetKeyDatas } from '../../Services/mocked-user';
+import { getAllDatas, getMockedDatas} from '../../Services/useFetch';
 import './dashboard.css';
 
 function Dashboard() {
-  // Props
-  let user
-  let infos
-  let session
-  let sessionActivity
-
-  // Params
   const params = useParams()
   const id = parseInt(params.id)
-  let location = window.location.href 
+  const location = window.location.href 
+  let data 
+  data = getAllDatas(id)
 
-  // Frontend url
-  let currentUrl = `http://localhost:3001/user/${id}`
-  let currentUrlMocked = `http://localhost:3001/user-mocked/${id}`
+  // If request api fail
+  if(data === undefined) {
+    data = getMockedDatas(id)
+  }
   
-  // Backend url
-  user = UseFetch(`http://localhost:3000/user/${id}`, getUser)
-  infos = UseFetch(`http://localhost:3000/user/${id}`,getKeyDatas )
-  session = UseFetch (`http://localhost:3000/user/${id}/average-sessions`,getSession)
-  sessionActivity = UseFetch(`http://localhost:3000/user/${id}/activity`,getSession)
-  
-  // If api data is not loaded, mocked data is loaded
-  if(user === undefined) {
-    user = mockedGetUser(userInfos, id)
-  }
-  if(session === undefined) {
-    session = mockedGetSession(userSessions, id)
-  }
-  if(sessionActivity === undefined) {
-    sessionActivity= mockedGetSession(userActivity, id)
-  }
-  if(infos === undefined) {
-    infos = mockedGetKeyDatas(userInfos, id)
-  }
-
   // If user change url, he's redirected to the page 404, else page is displayed
-  if(currentUrl === location || currentUrlMocked === location) {
+  if(data.currentUrl === location || data.currentUrlMocked === location) {
     return (
       <>
         <Navbar/>
           <main>
             <Aside/>
-              <div>             
+              <div className='container'>             
                 <Hello 
-                  firstname = {user.firstname}
+                  firstname = {data.user.firstname}
                 />             
                   <section className='stats-container'>
                     <section className='graphics-container'>                          
                       <Activity 
-                        session = {sessionActivity}
+                        session = {data.sessionActivity}
                       />                              
                         <div className='graph-container'>
                           <Graphline 
-                            session = {session}/>                
-                          <RadarGraph />              
+                            session = {data.session}
+                          />                
+                          <RadarGraph 
+                            performance = {data.performance.array}
+                        />              
                           <Circle 
-                            score = {user.score} 
-                            todayScore = {user.todayScore}
+                            score = {data.user.score} 
+                            todayScore = {data.user.todayScore}
                           />
                         </div>
                     </section>
                     <section className='numbers-container'>                
-                      <Menu infos = {infos}/>                 
+                      <Menu 
+                        infos = {data.infos}
+                      />                 
                     </section>
                   </section>
               </div>         
@@ -94,5 +70,14 @@ function Dashboard() {
   }else{
     return(<NotFound/>)
   }  
+}
+Dashboard.propTypes = {
+  firstname: PropTypes.string,
+  session: PropTypes.array,
+  sessionActivity: PropTypes.array,
+  performance: PropTypes.array,
+  todayScore: PropTypes.number,
+  score: PropTypes.number,
+  infos: PropTypes.array
 }
 export default Dashboard

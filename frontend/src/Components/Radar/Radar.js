@@ -1,23 +1,9 @@
 import React from 'react';
-import { useParams } from 'react-router';
-import { UseFetch} from '../../Services/useFetch';
-import { getPerformance} from '../../Services/user';
-import { userPerformance } from '../../mocked-data'
-import { mockedPerformance } from '../../Services/mocked-user';
+import PropTypes from 'prop-types';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from "recharts";
 import './radar.css';
 
-function RadarGraph() {
-  const params = useParams()
-  let id = parseInt(params.id)
-  let performance
-
-  performance = UseFetch(`http://localhost:3000/user/${id}/performance`, getPerformance)
-  
-  if(performance === undefined) {
-    performance = mockedPerformance( userPerformance, id)
-  }
-
+function RadarGraph(props) {
   return (
     <>     
       <RadarChart className='radar'
@@ -26,7 +12,7 @@ function RadarGraph() {
         outerRadius={78}     
         width={258}
         height={263}
-        data= {performance.array}
+        data= {props.performance}
       >
         <PolarGrid 
           polarRadius={[ 10, 20, 40, 60, 80 ]}
@@ -45,5 +31,8 @@ function RadarGraph() {
       </RadarChart>        
   </>
   )
+}
+Radar.propTypes = {
+  performance : PropTypes.array
 }
 export default RadarGraph

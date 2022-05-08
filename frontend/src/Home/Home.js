@@ -20,7 +20,6 @@ function Home() {
                   User 18
                 </button>
               </Link>
-
               <Link to={`user-mocked/12`}>
                 <button className='button-data'>
                   Mocked user 12

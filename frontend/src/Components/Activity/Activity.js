@@ -1,6 +1,14 @@
 import React from 'react';
 import { BarChart, Bar,  XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import PropTypes from 'prop-types'
 import './activity.css'
+
+/**
+ * Custom Tooltip
+ * @type {function}
+ * @param { payload } payload on hover an array with data is created
+ * @returns {HTMLElement} return HTML custom element
+ */
 
 const CustomTooltip = ({payload }) => {
   if (payload && payload.length) {
@@ -13,7 +21,6 @@ const CustomTooltip = ({payload }) => {
   }
   return null;
 };
- 
 function Activity(props) {
   
   return (   
@@ -86,5 +93,12 @@ function Activity(props) {
         </BarChart>
     </div>
   )     
+}
+
+Activity.propTypes = {
+  payload : PropTypes.array,
+  session : PropTypes.array,
+  kilogram : PropTypes.number,
+  calories: PropTypes.number
 }
 export default Activity

@@ -1,8 +1,8 @@
 import React from 'react';
-import Yoga from '../../assets/yoga.svg'
-import Swim from '../../assets/swimming.svg'
-import Ride from '../../assets/riding.svg'
-import Dumb from '../../assets/dumbbells.svg'
+import Yoga from '../../assets/yoga.svg';
+import Swim from '../../assets/swimming.svg';
+import Ride from '../../assets/riding.svg';
+import Dumb from '../../assets/dumbbells.svg';
 import './aside.css';
 
 function Aside() {

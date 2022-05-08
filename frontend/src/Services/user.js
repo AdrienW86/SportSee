@@ -1,11 +1,8 @@
 /**
  * Get user infos
- * @param { object } user response data from axios resquest
- * @param { string } firstname user firstname
- * @param { number } score user score
- * @param { number } todayScore user score
- * @param { object } keyData user key datas
- * @returns all values for any params 
+ * @function getUser
+ * @param { array } user response data from axios resquest
+ * @returns { array } all values from user
  */
 
 export const getUser = (user) => {
@@ -19,8 +16,8 @@ export const getUser = (user) => {
 
 /**
  * Get datakey of the user
- * @param { object } user response data from axios request
- * @param { object } keyData user key datas
+ * @function getKeyDatas
+ * @param { array } user response data from axios request
  * @returns { object } object with every data key (calorieCount, proteinCount...)
  */
 
@@ -31,19 +28,20 @@ export const getKeyDatas = (user) => {
 
 /**
  * Get the user sessions
- * @param {object} user response data from axios request
- * @returns {object} array with every user session object
+ * @function getSession
+ * @param { array } user response data from axios request
+ * @returns { array } array with every user session object
  */
 
-export const getSession = (user)=> {
+export const getSession = (user) => {
     let session = user.data.data.sessions
         return session
 }
 
 /**
  * Get the user performance
- * @param {object} user response data from axios request
- * @param {*} id id from the user
+ * @function getPerformance
+ * @param {array} user response data from axios request
  * @returns {array} array with every user performance object
  */
 

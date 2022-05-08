@@ -8,6 +8,14 @@ main {
     display: flex;
 }
 
+.container {
+    min-width: 1440px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
 .stats-container {
     display: flex;
     margin-top: 77px;

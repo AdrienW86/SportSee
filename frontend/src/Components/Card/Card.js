@@ -1,4 +1,5 @@
-import './card.css'
+import PropTypes from 'prop-types';
+import './card.css';
 
 function Card(props) {
   
@@ -19,5 +20,9 @@ function Card(props) {
        </div>
     </div>
   )
+}
+Card.propTypes = {
+  number : PropTypes.number,
+  unit: PropTypes.string
 }
 export default Card
