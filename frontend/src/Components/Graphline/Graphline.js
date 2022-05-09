@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { LineChart,  Tooltip, Line, XAxis, YAxis, ResponsiveContainer} from "recharts";
+import { LineChart,  Tooltip, Line, XAxis, YAxis} from "recharts";
 import './graphline.css';
 
 /**Custom Tooltip
@@ -13,7 +13,8 @@ const CustomTooltip = ({payload }) => {
   if (payload && payload.length) {
     return (
       <div className="tooltip-graphline">
-        <p className="graphline-tooltip">{`${payload[0].payload.sessionLength}min`}</p>            
+        <p className="graphline-tooltip">
+          {`${payload[0].payload.sessionLength}min`}</p>            
       </div>
     );
   }
@@ -37,7 +38,8 @@ function Graphline(props) {
       />
         <YAxis hide={true} domain={[0, "dataMax +30"]} />   
         <Tooltip
-          cursor={{
+           content={<CustomTooltip/>} 
+            cursor={{
             stroke: "rgba(0, 0, 0, 0.1)",
             strokeWidth: 80,
             strokeHeight: 270,
@@ -45,7 +47,6 @@ function Graphline(props) {
           padding = {{
             top: 50
           }}
-          content={<CustomTooltip/>} 
         />         
         <Line 
         className='line'

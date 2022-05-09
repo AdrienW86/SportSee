@@ -16,17 +16,20 @@ let url = 'http://localhost:3000/user/'
  * Custom Hook for api request
  * @type {function}
  * @param { string } url url from the request
- * @param { function } pathFunction function for update the response in the good format
+ * @param { function } pathFunction function for update the response in the expected format
  * @returns { array } array with the response data in the format expected
  */
 
 function UseFetch(url, pathFunction) {
   const [data, setData] = useState([]);
     useEffect(() => {
-      axios.get(url)
+      // eslint-disable-next-line
+    axios.get(url)
       .then(response => {
         const path = pathFunction(response)   
     setData(path);     
+  })  .catch(err => {
+      console.log(err)
   })
  }, [url, pathFunction]);
 return data
